@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoLoc - Détails du véhicule</title>
+  <link rel="stylesheet" href="style.css/tesla.css" />
+  <link rel="icon" type="image/png" href="/frontend/Images/Favicon.ico" />
+
+</head>
+
+<body>
+
+  <!-- ======== HEADER ======== -->
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo">
+        <h1 class="site-title">AutoLoc</h1>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="stacked-btn" role="navigation" aria-label="actions utilisateur">
+        <button class="btn" onclick="window.location.href='inscription.html'" id="btn-auth">Connexion / Inscription</button>
+        <button class="btn secondary" id="btn-res">Gérer mes réservations</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== CONTENU PRINCIPAL ======== -->
+  <main class="vehicule-container">
+
+    <!-- ========== Galerie + nom du véhicule ========== -->
+    <section class="vehicule-galerie">
+      <h2 class="vehicule-titre">Tesla Model 3</h2>
+
+      <div class="carousel" aria-roledescription="carousel">
+        <!-- flèche gauche -->
+        <button class="carousel-btn prev" aria-label="image précédente">&#10094;</button>
+
+        <!-- track d'images -->
+        <div class="carousel-track">
+          <img src="Images/Photos voiture/tesla/tesla1.jpg" alt="Vue avant Tesla Model 3">
+          <img src="Images/Photos voiture/tesla/tesla2.jpg" alt="Vue arrière Tesla Model 3">
+          <img src="Images/Photos voiture/tesla/tesla3.jpg" alt="Intérieur Tesla Model 3">
+        </div>
+
+        <!-- flèche droite -->
+        <button class="carousel-btn next" aria-label="image suivante">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- ========= Description & caractéristiques ========= -->
+    <section class="vehicule-details">
+      <div class="vehicule-infos">
+        <div class="description">
+          <h3>Description</h3>
+          <p>
+            Découvrez la Tesla Model 3, une berline 100% électrique alliant performance,
+            confort et technologie de pointe. Avec une autonomie de plus de 500 km et un
+            intérieur minimaliste, elle offre une expérience de conduite inégalée.
+          </p>
+        </div>
+
+        <div class="caracteristiques">
+          <h3>Caractéristiques</h3>
+          <ul>
+            <li>Type : Berline électrique</li>
+            <li>Places : 5</li>
+            <li>Portes : 5</li>
+            <li>Transmission : Automatique</li>
+            <li>Autonomie : 510 km</li>
+            <li>Puissance : 306 ch</li>
+            <li>Couleur : Rouge</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ========= Bandeau de réservation ========= -->
+      <aside class="reservation-panel">
+        <h3>Réserver ce véhicule</h3>
+        <form>
+          <label for="start">Début de réservation</label>
+          <input type="datetime-local" id="start" name="start">
+
+          <label for="end">Fin de réservation</label>
+          <input type="datetime-local" id="end" name="end">
+
+          <div class="prix-total">
+            <p>Prix total : <strong>360€</strong></p>
+          </div>
+
+          <label for="payment">Mode de paiement</label>
+          <select id="payment" name="payment">
+            <option value="cb">Carte bancaire</option>
+            <option value="paypal">PayPal</option>
+            <option value="virement">Virement bancaire</option>
+          </select>
+
+          <button type="submit" class="btn-reserver">Réserver maintenant</button>
+        </form>
+      </aside>
+    </section>
+
+    <!-- ======== Avis clients ======= -->
+    <section class="avis">
+      <h3>Avis clients</h3>
+      <div class="avis-liste">
+        <article class="avis-item">
+          <strong>Marie D.</strong>
+          <p>Très bonne expérience ! La voiture était propre et agréable à conduire.</p>
+          <span>★★★★★</span>
+        </article>
+
+        <article class="avis-item">
+          <strong>Julien P.</strong>
+          <p>Autonomie fidèle à la description, parfait pour un week-end.</p>
+          <span>★★★★☆</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <button class="footer-btn">À propos</button>
+        <button class="footer-btn">Qui sommes-nous</button>
+        <button class="footer-btn">Espace presse</button>
+        <button class="footer-btn">Nos valeurs</button>
+      </div>
+
+      <div class="footer-col">
+        <button class="footer-btn">Nous contacter</button>
+        <button class="footer-btn">Réseaux sociaux</button>
+        <button class="footer-btn">Mail</button>
+        <button class="footer-btn">Téléphone</button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======  Petit carrousel simple (JS minimal) ====== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const nextBtn = document.querySelector('.next');
+      const prevBtn = document.querySelector('.prev');
+      let index = 0;
+
+      // Si éléments manquants -> rien ne se passe
+      if (!track || !nextBtn || !prevBtn) return;
+
+      // s'assure que chaque image prend 100% de la fenêtre du carrousel
+      function setSizes() {
+        const imgs = Array.from(track.querySelectorAll('img'));
+        const containerWidth = track.parentElement.clientWidth;
+        imgs.forEach(img => {
+          img.style.minWidth = containerWidth + 'px';
+        });
+        // repositionne après un resize
+        track.style.transform = `translateX(-${index * containerWidth}px)`;
+      }
+
+      // initial et au resize
+      setSizes();
+      window.addEventListener('resize', setSizes);
+
+      // navigation
+      nextBtn.addEventListener('click', () => {
+        const count = track.children.length;
+        index = (index + 1) % count;
+        const w = track.parentElement.clientWidth;
+        track.style.transform = `translateX(-${index * w}px)`;
+        // garantie : réaffiche les boutons si, pour une raison quelconque, CSS/JS les a masqués
+        prevBtn.style.display = '';
+        nextBtn.style.display = '';
+      });
+
+      prevBtn.addEventListener('click', () => {
+        const count = track.children.length;
+        index = (index - 1 + count) % count;
+        const w = track.parentElement.clientWidth;
+        track.style.transform = `translateX(-${index * w}px)`;
+        // garantie : réaffiche les boutons si, pour une raison quelconque, CSS/JS les a masqués
+        prevBtn.style.display = '';
+        nextBtn.style.display = '';
+      });
+    });
+  </script>
+
+</body>
+</html>

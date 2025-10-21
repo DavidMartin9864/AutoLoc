@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoLoc - Inscription</title>
+  <link rel="stylesheet" href="style.css/inscription.css">
+  <link rel="icon" type="image/png" href="Images/Favicon.ico">
+</head>
+
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo">
+        <h1 class="site-title">AutoLoc</h1>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="stacked-btn" role="navigation" aria-label="actions utilisateur">
+        <button class="btn" id="btn-auth">Connexion / Inscription</button>
+        <button class="btn secondary" id="btn-res">Gérer mes réservations</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== MAIN ======== -->
+  <main>
+    <section class="form-section">
+      <h2>Créer un compte AutoLoc</h2>
+
+      <form class="signup-form" aria-label="Formulaire d'inscription" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="naissance">Date de naissance</label>
+          <input type="date" id="naissance" name="naissance" required>
+        </div>
+
+        <div class="form-group">
+          <label for="permis">Date d’obtention du permis</label>
+          <input type="date" id="permis" name="permis" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="adresse">Adresse postale</label>
+          <input type="text" id="adresse" name="adresse" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone</label>
+          <input type="tel" id="telephone" name="telephone" pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="mdp" id="password" name="password" required >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Confirmation du mot de passe</label>
+          <input type="mdp" id="password" name="password" required >
+        </div>
+
+      <div class="btn-row">
+        <button type="submit" class="submit-btn">Créer mon compte</button>
+        <button type="button" class="submit-btn secondary">Se connecter</button>
+      </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <button class="footer-btn">À propos</button>
+        <button class="footer-btn">Qui sommes-nous</button>
+        <button class="footer-btn">Espace presse</button>
+        <button class="footer-btn">Nos valeurs</button>
+      </div>
+
+      <div class="footer-col">
+        <button class="footer-btn">Nous contacter</button>
+        <button class="footer-btn">Réseaux sociaux</button>
+        <button class="footer-btn">Mail</button>
+        <button class="footer-btn">Téléphone</button>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+
+</html>

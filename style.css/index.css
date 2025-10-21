@@ -1,0 +1,368 @@
+ /****** VARIABLES GLOBALES *******/
+ /***********************************/
+:root {
+  --red: #CF231F;
+  --black: #0C0C0B;
+  --white: #ffffff;
+  --muted: #f5f5f5;
+  --radius: 10px;
+  --gap: 12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--muted);
+  color: var(--black);
+}
+/***********************************/
+ /****** HEADER, LOGOS, TITRES, BOUTONS *******/
+/***********************************/
+
+header.site-header {
+  background: var(--red);
+  color: var(--white);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-left, .header-center, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.logo-img {
+  height: 100px;
+  border-radius: 8px;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.site-title {
+  font-size: 80px;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 10px 0 rgba(0, 0, 0, 0.2);
+  
+}
+
+.header-right {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stacked-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn:active { transform: translateY(1px); }
+
+/***********************************/
+ /****** MAIN *******/
+/***********************************/
+
+main {
+  padding: 20px;
+  margin: 0 auto;        
+  width: 100%;
+  max-width: 1500px;     
+  box-sizing: border-box;
+}
+
+.search-bar {
+  background: var(--white);
+  width: 100%;           
+  max-width: 1500px;     
+  border-radius: 12px;
+  padding: 50px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(12, 12, 11, 0.06);
+  margin: 0 auto;        
+}
+
+label {
+  font-size: 13px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+  flex: 1;
+}
+
+.datetime-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 30px;
+  min-width: 220px;
+  flex: 1;
+}
+
+.datetime-group > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  gap: 8px;
+}
+
+.search-input,
+.datetime-select,
+.filter-select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: var(--white);
+  font-size: 14px;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+
+}
+
+.filters > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: center;
+}
+
+.search-submit {
+  align-self: center;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 20px;
+  background: #CF231F;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-left: 50px;  
+  width: 100%;
+  height: 80px;
+}   
+
+.search-submit:hover {
+  background: #dd9292;
+}
+
+/***********************************/
+/****** CARTES DE RESULTATS *******/
+/***********************************/
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.results-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 20px auto 0;   
+  box-sizing: border-box;
+}
+
+.card {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(12, 12, 11, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  background: linear-gradient(rgb(230, 123, 123), #CF231F)
+}
+
+.card:hover {
+  background: #dd9292;
+}
+
+.thumb {
+  width: 120px;
+  height: 76px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/***********************************/
+ /****** FOOTER *******/
+/***********************************/
+
+.site-footer {
+  background: var(--red);
+  color: var(--white);
+  padding: 30px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 100px;
+  text-align: left;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 400px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.footer-btn {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease;
+  width: 200px;
+  text-align: center;
+}
+
+.footer-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/***********************************/
+ /****** RESPONSIVE DESIGN *******/
+/***********************************/
+
+@media (max-width: 1080px) {
+  .footer-columns { gap: 80px; }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-submit {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title { font-size: 42px; }
+  .logo-img { height: 70px; }
+  .footer-btn { font-size: 14px; padding: 8px 10px; }
+  .footer-col h3 { font-size: 14px; }
+}
+
+
+
+
+
+
+
+
+
+
+

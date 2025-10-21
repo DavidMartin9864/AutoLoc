@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoLoc - Location de voiture</title>
+  <link rel="stylesheet" href="style.css/index.css">
+  <link rel="icon" type="image/png" href="Images/Favicon.ico">
+</head>
+
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo">
+      <h1 class="site-title">AutoLoc</h1>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="stacked-btn" role="navigation" aria-label="actions utilisateur">
+        <button class="btn" onclick="window.location.href='inscription.html'" id="btn-auth">Connexion / Inscription</button>
+        <button class="btn secondary" id="btn-res">Gérer mes réservations</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== MAIN ======== -->
+  <main>
+    
+    <!-- ======== Barre de recherche ======== -->
+    <form class="search-bar" id="searchForm" aria-label="Recherche de véhicule"
+      onsubmit="event.preventDefault(); performSearch();">
+
+      <div class="search-group">
+        <label for="q">Rechercher un véhicule</label>
+        <input id="q" name="q" class="search-input" placeholder="ex : Clio, Model 3, 3008" />
+      </div>
+
+      <div class="datetime-group" aria-label="Dates et heures de réservation">
+        <div>
+          <label for="start">Début de réservation</label>
+          <input type="datetime-local" id="start" name="start">
+        </div>
+        <div>
+          <label for="end">Fin de réservation</label>
+          <input type="datetime-local" id="end" name="end">
+        </div>
+      </div>
+
+      <div class="filters" role="region" aria-label="Filtres de recherche">
+        <div>
+          <label for="marque">Marque</label><br />
+          <select id="type" class="filter-select" name="type">
+            <option value="toutes">Toutes</option>
+            <option value="citadine">Renault</option>
+            <option value="suv">Citroën</option>
+            <option value="berline">Volkswagen</option>
+            <option value="break">BMW</option>
+            <option value="routiere">Peugeot</option>
+            <option value="electrique">Tesla</option>
+            <option value="hybride">Audi</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="price">Prix</label><br />
+          <select id="price" class="filter-select" name="price">
+            <option value="all">Tous</option>
+            <option value="lt500">&lt;60€/j</option>
+            <option value="500-1000">60-100€/j</option>
+            <option value="gt1000">&gt;100€/j</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="fuel">Carburant</label><br />
+          <select id="fuel" class="filter-select" name="fuel">
+            <option value="any">Tous</option>
+            <option value="essence">Essence</option>
+            <option value="diesel">Diesel</option>
+            <option value="electrique">Électrique</option>
+            <option value="hybride">Hybride</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="seats">Places</label><br />
+          <select id="seats" class="filter-select" name="seats">
+            <option value="any">Toutes</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="7">7+</option>
+          </select>
+        </div>
+
+        <div style="display:flex;align-items:flex-end;">
+          <button type="submit" class="search-submit" aria-label="Valider la recherche">Voir les disponibilités</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- ======== Résultats ======== -->
+    <section class="results-container">
+      <div class="results" aria-live="polite" id="results">
+
+        <button class="card" onclick="window.location.href='vehicule-clio.html'">
+          <div class="thumb"><img src="Images/Photos voiture/renault/renaultclio1.jpg.webp" alt="Renault Clio"></div>
+          <div><strong>Renault Clio</strong><br>Citadine • Essence • 4 places<br>À partir de 45€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='tesla.html'">
+          <div class="thumb"><img src="Images/Photos voiture/tesla/tesla1.jpg" alt="Tesla Model 3"></div>
+          <div><strong>Tesla Model 3</strong><br>Berline • Électrique • 5 places<br>À partir de 120€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-208.html'">
+          <div class="thumb"><img src="Images/Photos voiture/peugeot/peugeot2081.jpg" alt="Peugeot 208"></div>
+          <div><strong>Peugeot 208</strong><br>Citadine • Essence • 5 places<br>À partir de 50€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-q5.html'">
+          <div class="thumb"><img src="Images/Photos voiture/audi/audiq51.jpg" alt="Audi Q5"></div>
+          <div><strong>Audi Q5</strong><br>SUV • Diesel • 5 places<br>À partir de 110€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-c3.html'">
+          <div class="thumb"><img src="Images/Photos voiture/citroen/citroenC31.jpg" alt="Citroën C3"></div>
+          <div><strong>Citroën C3</strong><br>Citadine • Essence • 4 places<br>À partir de 40€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-golf.html'">
+          <div class="thumb"><img src="Images/Photos voiture/volkswagen/volkswagengolf1.jpg" alt="Volkswagen Golf"></div>
+          <div><strong>Volkswagen Golf</strong><br>Berline • Hybride • 5 places<br>À partir de 75€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-x5.html'">
+          <div class="thumb"><img src="Images/Photos voiture/BMW/BMWX51.jpg" alt="BMW X5"></div>
+          <div><strong>BMW X5</strong><br>SUV • Hybride • 7 places<br>À partir de 140€/jour</div>
+        </button>
+
+        <button class="card" onclick="window.location.href='vehicule-megane.html'">
+          <div class="thumb"><img src="Images/Photos voiture/renault/renaultmegane1.jpg" alt="Renault Mégane"></div>
+          <div><strong>Renault Mégane</strong><br>Routière • Diesel • 5 places<br>À partir de 60€/jour</div>
+        </button>
+        
+      </div>
+    </section>
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-left">
+      <a class="logo" href="index.html" aria-label="AutoLoc - accueil">
+        <img src="Images/Logo.png" alt="Logo AutoLoc" class="logo-img">
+      </a>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <button class="footer-btn">À propos</button>
+        <button class="footer-btn">Qui sommes-nous</button>
+        <button class="footer-btn">Espace presse</button>
+        <button class="footer-btn">Nos valeurs</button>
+      </div>
+
+      <div class="footer-col">
+        <button class="footer-btn">Nous contacter</button>
+        <button class="footer-btn">Réseaux sociaux</button>
+        <button class="footer-btn">Mail</button>
+        <button class="footer-btn">Téléphone</button>
+      </div>
+
+    
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
